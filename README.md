@@ -1,4 +1,4 @@
-# JS-Scripts
+# JS-Modding-API
 
 **Установка**:
 ````
