@@ -1,6 +1,3 @@
-Events.on('KEY_PRESS', function (ref) {
-    Client.sendMessageToPlayer('Key: ' + ref.value)
-}, EventPriority.NORMAL)
 let clicks = 0
 JSEngine.setInterval(function() {clicks = 0}, 1000)
 Events.on('MOUSE_PRESS', function (ref) {
