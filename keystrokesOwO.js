@@ -1,16 +1,11 @@
 let clicks = 0
-JSEngine.setInterval(function() {clicks = 1}, 1000)
-Events.on('MOUSE_PRESS', function(ref) {
-    if (ref.value == 1) {
-        clicks++;
-    }
-}, EventPriority.NORMAL)
-
 let clickss = 0
-JSEngine.setInterval(function() {clickss = 0}, 1000)
+JSEngine.setInterval(function() {clickss = clicks = 0}, 1000)
 Events.on('MOUSE_PRESS', function(ref) {
     if (ref.value == 0) {
         clickss++;
+    } else if (ref.value == 1) {
+        clicks++;
     }
 }, EventPriority.NORMAL)
 
@@ -33,7 +28,7 @@ Events.on('GUI_DRAW', function(resolution) {
     Draw.drawString('§'.concat(Keyboard.isKeyDown(Keyboard.KEY_SPACE) ? 'a' : 'c').concat('SPACE'), width - 54, height - 44, 0)
 
     Draw.drawRect(width - 28, height - 79, width - 3, height - 102, 0xCC000000)
-    Draw.drawString ('§'.concat(Mouse.isButtonDown(1) ? 'a' : 'c').concat(clicks === 1 ? 'RMB' : clicks) , width - (clicks == 1 ? 24:19), height - 94, 0)
+    Draw.drawString ('§'.concat(Mouse.isButtonDown(1) ? 'a' : 'c').concat(clicks === 0 ? 'RMB' : clicks) , width - (clicks == 0 ? 24:19), height - 94, 0)
     
     Draw.drawRect(width - 77, height - 79, width - 52, height - 102, 0xCC000000)
     Draw.drawString ('§'.concat(Mouse.isButtonDown(0) ? 'a' : 'c').concat(clickss === 0 ? 'LMB' : clickss), width - (clickss == 0 ? 73:68), height - 94, 0)
